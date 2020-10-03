@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avalon.mapper.HeroMapper">
+
+    <select id="queryById" resultType="hero">
+        select * from maplestory_hero where id = #{value}
+    </select>
+    
+    <select id="queryAll" resultType="hero">
+        select * from maplestory_hero
+    </select>
+    
+    <select id="queryLike" resultType="hero">
+        select * from maplestory_hero where name like concat("%", #{value}, "%")
+    </select>
+</mapper>

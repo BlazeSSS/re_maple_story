@@ -1,0 +1,17 @@
+table {
+	width: 700px;
+	border: #ccc solid 1px;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+th {
+	background: #999
+}
+
+tr, td {
+	border: #ccc solid 1px;
+}
+#searchForm{
+	display:inline-block;
+}

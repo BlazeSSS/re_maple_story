@@ -1,0 +1,28 @@
+
+.arrow{
+	position:absolute;
+	top:50%;
+	width:70px;
+	height:43px;
+	/* border-radius:50%; */
+	display:inline-block;
+}
+.arrow:hover{
+	cursor:pointer;
+}
+#middle{
+	width:100%;
+	display:inline-block;
+}
+#left{
+	left:50px;
+	background-image:url(../img/monster/left.png);
+}
+#right{
+	right:50px;
+	background-image:url(../img/monster/right.png);
+}
+html,body{
+	height:100%;
+	margin:0;
+}

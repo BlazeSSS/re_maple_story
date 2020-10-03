@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avalon.mapper.UserMapper">
+
+    <select id="login" parameterType="user" resultType="user">
+        select * from maplestory_user where id=#{id} and password=#{password}
+    </select>
+
+    <insert id="register" parameterType="user">
+        insert into maplestory_user(id, name, password, email, phonenum) values (#{id},#{name},#{password},#{email},#{phonenum})
+    </insert>
+
+    <delete id="deleteUser">
+        delete from maplestory_user where id = #{value}
+    </delete>
+
+    <update id="updateFreezeStatus" parameterType="user">
+        update maplestory_user set isFreeze=#{isFreeze} where id=#{id}
+    </update>
+
+    <update id="updateUser" parameterType="user">
+        update maplestory_user set name=#{name}, password=#{password}, email=#{email}, phonenum=#{phonenum} where id=#{id} 
+    </update>
+
+    <update id="updateCollection" parameterType="user">
+        update
+            maplestory_user
+        set
+            heroCollection = #{heroCollection} 
+        where
+            id = #{id} 
+    </update>
+
+    <select id="queryById" resultType="user">
+        select * from maplestory_user where id = #{value}
+    </select>
+
+    <select id="queryAll" resultType="user">
+        select * from maplestory_user where isGM != 1
+    </select>
+
+    <select id="queryLike" resultType="user">
+        select * from maplestory_user where isGM != 1 and name like concat('%', #{value}, '%')
+    </select>
+</mapper>  
