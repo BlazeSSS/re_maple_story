@@ -15,5 +15,4 @@
     
     <import resource="classpath:application-mapper.xml"/>
     <import resource="classpath:application-service.xml"/>
-    <import resource="classpath:application-controller.xml"/>
 </beans>

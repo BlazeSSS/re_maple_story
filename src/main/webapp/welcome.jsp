@@ -1,8 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()+ path + "/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
+<base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="statics/css/welcome.css" />
 <script src="statics/js/jquery.min1.9.1.js" type="text/javascript"></script>
@@ -27,7 +32,7 @@
 	}
 	
 	function logout(){
-		window.location.href = "DoLogout";
+		window.location.href = "account/logout";
 	}
 	function toUserCenter(){
 		window.location.href = "UserInfoServlet?task=select";

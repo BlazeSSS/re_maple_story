@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()+ path + "/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
+<base href="<%=basePath%>">
 <meta charset="UTF-8">
 <title>登录界面</title>
 <link rel="stylesheet" href="statics/css/home.css" />
@@ -19,6 +24,10 @@
         $("#newUser").click(function() {
             window.location.href = "register.jsp";
         });
+        
+        <c:if test="${message != null}">
+          alert("${message}");
+        </c:if>
     });
 </script>
 </head>
@@ -28,11 +37,11 @@
         <div id="div1"></div>
         <div id="div2"></div>
         <div id="div3">
-            <form name="Form01" action="DoLogin" method="post" >
+            <form name="Form01" action="account/login" method="post" >
                 <table style="padding:8px">
                     <tr>
                         <td height="30px">
-                            <input type="text" id="user" name="userid" style="width: 161px" />
+                            <input type="text" id="userId" name="id" style="width: 161px" />
                         </td>
                         <td rowspan="2">
                             <img id="link" src="statics/img/link.png" onclick="submit()" />
@@ -41,6 +50,11 @@
                     <tr>
                         <td>
                             <input type="password" id="password" name="password" style="width: 161px" />
+                        </td>
+                    </tr>
+                    <tr style="display:none">
+                        <td>
+                            <input type="text" id="loginAction" name="loginAction" value="1" />
                         </td>
                     </tr>
                     <tr>
