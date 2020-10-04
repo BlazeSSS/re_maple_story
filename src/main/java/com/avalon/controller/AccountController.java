@@ -21,7 +21,7 @@ public class AccountController {
     @RequestMapping("login")
     public String login(UserVo userVo, Model model, HttpSession session) {
         
-        if (!"1".equals(userVo.getLoginAction())) {
+        if (!"login".equals(userVo.getAction())) {
             return "../login.jsp";
         }
         
@@ -47,5 +47,22 @@ public class AccountController {
         
         session.removeAttribute("id");
         return "../login.jsp";
+    }
+    
+    @RequestMapping("register")
+    public String register(UserVo userVo, Model model) {
+        
+        if (!"register".equals(userVo.getAction())) {
+            return "../register.jsp";
+        }
+        
+        int count = userService.register(userVo);
+        if (count != 0) {
+            model.addAttribute("message", "注册成功");
+            return "../login.jsp";
+        } else {
+            model.addAttribute("message", "注册失败，账号已存在");
+            return "../register.jsp";
+        }
     }
 }

@@ -4,13 +4,13 @@ import com.avalon.domain.User;
 
 public class UserVo extends User{
 
-    private String loginAction;
+    private String action;
 
-    public String getLoginAction() {
-        return loginAction;
+    public String getAction() {
+        return action;
     }
 
-    public void setLoginAction(String loginAction) {
-        this.loginAction = loginAction;
+    public void setAction(String action) {
+        this.action = action;
     }
 }

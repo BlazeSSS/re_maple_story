@@ -24,6 +24,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int register(User user) {
+        
+        User user2 = this.queryById(user.getId());
+        if (user2 != null) {
+            return 0;
+        }
         return userMapper.register(user);
     }
 

@@ -14,7 +14,7 @@
 <script type="text/javascript">
 	function toDetailHero(id){
 		
-		window.location.href = "HeroServlet?task=detail&id="+id;
+		window.location.href = "hero/detail/" + id;
 	}
 	function back(){
 		

@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()+ path + "/";
+%>
 <!DOCTYPE>
 <html>
 <head>
+<base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="statics/js/jquery.min1.9.1.js" type="text/javascript"></script>
 <style type="text/css">
@@ -64,11 +69,11 @@
 </script>
 </head>
 <body style="background-image:url(statics/img/userInfo/adminUpdateUserBg.png);background-size: cover;">
-	<a href="UserServlet?task=select" style="color:white">返回上一级</a>
-	<a href="./login.jsp" style="color:white">返回主页</a><br>
+	<a href="userInfo/queryLike" style="color:white">返回上一级</a>
+	<a href="./welcome.jsp" style="color:white">返回主页</a><br>
 	<div style="margin: 100px auto" align="center">
 		<h3 style="color:white">用户信息</h3>
-		<form action="UserServlet?task=update&id=${user.id }" name="Form01" style="margin:0" method="post">
+		<form action="userInfo/otherUserUpdate" name="Form01" style="margin:0" method="post">
 		<table style="background-color:white; color: black; background-color: #ffffffaa; width: 320px">
 			<tr>
 				<td width="100px"  >
@@ -76,6 +81,11 @@
 				</td>
 				<td width="100px">${user.id}</td>
 			</tr>
+            <tr style="display: none">
+                <td>
+                    <input id="userId" type="text" name="id" disabled="disabled" value="${user.id}"/>
+                </td>
+            </tr>
 			<tr>
 				<td >
 					<p>用户昵称</p>

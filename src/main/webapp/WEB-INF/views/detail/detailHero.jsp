@@ -75,9 +75,7 @@
 		
 		$.ajax({
 			type:"get",
-			url:"UserInfoServlet?task=" + task +"&heroId="+heroId,
-			data:{
-			},
+			url:"hero/" + task + "/" + heroId,
 			success:function(result){
 				$("#collection").text(result);
 			}

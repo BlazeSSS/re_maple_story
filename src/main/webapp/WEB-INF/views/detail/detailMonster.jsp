@@ -27,12 +27,7 @@
 		}
 		$.ajax({
 			type:"post",
-			url:"MonsterServlet",
-			dataType:"json",
-			data:{
-				"time":new Date(),
-				"id":id,
-			},
+			url:"monster/switch/" + id,
 			success:function(result){
 				
 				$("#monsterId").text(result.id);
@@ -56,11 +51,7 @@
 		}
 		$.ajax({
 			type:"post",
-			url:"MonsterServlet",
-			dataType:"json",
-			data:{
-				"id":id,
-			},
+			url:"monster/switch/" + id,
 			success:function(result){
 				$("#monsterId").text(result.id);
 				$("#monsterName").text(result.name);
@@ -81,7 +72,7 @@
 				<p id="monsterId" hidden="">1</p>
 				<h2 id="monsterName" style="color:white">黄蘑菇</h2>
 				<p style="height:50px;"></p>
-				<img id="monsterImg" alt="monster" src="statics/img/monster/mushroom.gif">
+				<img id="monsterImg" alt="monster" style="user-select: none;" src="statics/img/monster/mushroom.gif">
 			</div>
 		</div>
 		<div id="right" class="arrow" onclick="right()"></div>

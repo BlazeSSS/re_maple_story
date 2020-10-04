@@ -22,33 +22,34 @@
 	});
 	
 	function toHero(){
-		window.location.href = "HeroServlet?task=init"
+		window.location.href = "hero/queryAll"
 	}
 	function toMonster(){
-		window.location.href = "MonsterServlet"
+		window.location.href = "monster/show"
 	}
 	function toCollection(){
-		window.location.href = "MyCollection"
+		window.location.href = "collection/show"
 	}
 	
 	function logout(){
 		window.location.href = "account/logout";
 	}
 	function toUserCenter(){
-		window.location.href = "UserInfoServlet?task=select";
+		window.location.href = "userInfo/personal";
 	}
 </script>
 </head>
 <body style='margin: 0; background-image: url(statics/img/bg.png); background-size: cover; text-align: center'>
 	<div style='background-image: url(statics/img/master.png); width: 1533px; height: 629px; position: relative; display: inline-block'>
 	
-		<div class="loginInfo" align='right'>
+<%-- 		<div class="loginInfo" align='right'>
 			<span><%=session.getAttribute("id")%></span><br>
 			<span><%=session.getAttribute("name")%></span><br>
 			<span>登录成功</span><br>
 			<span id="userCenter" onclick="toUserCenter()">个人中心</span>
 			<span id="logout" onclick="logout()">退出</span>
-		</div>
+		</div> --%>
+		<div style="height: 160px"></div>
 		<div align="center">
 			<table>
 				<tr>

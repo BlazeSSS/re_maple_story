@@ -31,20 +31,20 @@ tr, td {
 <script>
 	function deleteUser(id) {
 		if (window.confirm("是否删除此数据")) {
-			window.location.href = "UserServlet?task=delete&id=" + id;
+			window.location.href = "userInfo/delete/" + id;
 		}
 	}
 	function updateUser(id) {
-			window.location.href = "UserServlet?task=beforeUpdate&id=" + id;
+			window.location.href = "userInfo/otherUser/" + id;
 	}
 </script>
 </head>
 <body style="background-image:url(statics/img/userInfo/userList.png); background-size:cover;">
-	<a href="UserInfoServlet?task=select" style="color:white">返回上一级</a>
+	<a href="userInfo/personal" style="color:white">返回上一级</a>
 	<a href="./welcome.jsp" style="color:white">返回主页</a><br>
 	<div align="center">
 		<div>
-			<form method="post" action="UserServlet?task=select" style="color:white">
+			<form method="post" action="userInfo/queryLike" style="color:white">
 				昵称：<input type="text" name="username" /> <input type="submit"
 					value="查询" />
 			</form>
@@ -79,8 +79,8 @@ tr, td {
 						</c:if>
 						<td>
 							<a href="javascript:deleteUser('${user.id }')">删除</a>
-							<a href="UserServlet?task=freeze&id=${user.id }">冻结</a>
-							<a href="UserServlet?task=unfreeze&id=${user.id }">解冻</a> 
+							<a href="userInfo/freeze/${user.id }">冻结</a>
+							<a href="userInfo/unfreeze/${user.id }">解冻</a> 
 						</td>
 					</tr>
 				</c:if>

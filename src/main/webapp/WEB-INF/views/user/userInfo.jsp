@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()+ path + "/";
+%>
 <!DOCTYPE>
 <html>
 <head>
+<base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="statics/js/jquery.min1.9.1.js" type="text/javascript"></script>
 <style type="text/css">
@@ -64,18 +69,18 @@
 </script>
 </head>
 <body style="background-image:url(statics/img/userInfo/userBg.png)">
-	<a href="./login.jsp" style="color:black">返回主页</a><br>
+	<a href="./welcome.jsp" style="color:black">返回主页</a><br>
 	<div style="margin: 100px auto" align="center">
 		<c:if test="${user.isGM==1}">
 			<h1>你好！管理员</h1>
 		</c:if>
 		<h3>个人信息</h3>
-		<form action="UserInfoServlet?task=update&id=${user.id }" name="Form01" style="margin:0" method="post">
+		<form action="userInfo/update" name="Form01" style="margin:0" method="post">
 		<table style="background-color:white; color: black; background-color: #ffffffaa; width: 320px">
 			<tr>
 				<td colspan="3" align="center">
 					<c:if test="${user.isGM==1}">
-						<span><a href="UserServlet?task=select">查看所有用户</a></span>
+						<span><a href="userInfo/queryLike">查看所有用户</a></span>
 					</c:if>
 				</td>
 			</tr>
@@ -85,6 +90,11 @@
 				</td>
 				<td width="100px">${user.id}</td>
 			</tr>
+			<tr style="display:none">
+                <td>
+                    <input id="userId" type="text" name="id" disabled="disabled" value="${user.id}"/>
+                </td>
+            </tr>
 			<tr>
 				<td >
 					<p>用户昵称</p>

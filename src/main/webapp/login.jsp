@@ -54,7 +54,7 @@
                     </tr>
                     <tr style="display:none">
                         <td>
-                            <input type="text" id="loginAction" name="loginAction" value="1" />
+                            <input type="text" id="action" name="action" value="login" />
                         </td>
                     </tr>
                     <tr>
